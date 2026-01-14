@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>认识我们的学校 - Kenali Sekolah Kita</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* 这里的样式让手机看起来更像一个游戏 App */
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background:#f0f4f8; text-align:center; margin:0; padding-bottom: 50px; }
+header { background:#1976d2; color:white; padding:15px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+section { display:none; padding:20px; animation: fadeIn 0.4s; }
+section.active { display:block; }
+img { width: 100%; max-width:280px; border-radius:15px; margin:15px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 4px solid white; }
+button {
+  display:block; width:95%; max-width:420px; margin:12px auto;
+  padding:16px; font-size:17px; border-radius:12px; font-weight: 500;
+  border:none; background:white; box-shadow:0 3px 6px rgba(0,0,0,.1);
+  cursor: pointer; transition: 0.2s; color: #1976d2;
+}
+button:active { background:#e3f2fd; transform: scale(0.98); }
+#musicBtn { position:fixed; top:12px; right:12px; font-size:20px; z-index: 100; background: white; border-radius: 50%; width: 45px; height: 45px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; }
+h3 { color: #333; line-height: 1.5; margin-top: 0; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>🏫 认识我们的学校</h2>
+<p>Kenali Sekolah Kita</p>
+</header>
+
+<button id="musicBtn" onclick="toggleMusic()">🔊</button>
+
+<audio id="bgm" loop>
+  <source src="calm.mp3" type="audio/mpeg">
+</audio>
+
+<section id="start" class="active">
+<h3>🎮 欢迎来到解谜游戏</h3>
+<p>规则：答对才能继续，答错必须重来！<br>Syarat: Jawab betul baru terus, salah perlu jawab semula!</p>
+<button onclick="startGame()" style="background:#1976d2; color:white;">开始挑战 / Mula</button>
+</section>
+
+<section id="q1">
+<h3>谁是我们的校长？<br>Siapakah Guru Besar sekolah kita?</h3>
+<img src="ling_lee_ann.jpg">
+<button onclick="wrong()">江泽锋老师 Cikgu Kong Zhe Fong</button>
+<button onclick="correct(2)">林礼安老师 Cikgu Ling Lee Ann</button>
+<button onclick="wrong()">黄遵扬老师 Cikgu Wee Chun Yang</button>
+</section>
+
+<section id="q2">
+<h3>谁是行政副校长？<br>Siapakah GPK Pentadbiran?</h3>
+<img src="kong_zhe_fong.jpg">
+<button onclick="correct(3)">江泽锋老师 Cikgu Kong Zhe Fong</button>
+<button onclick="wrong()">林礼安老师 Cikgu Ling Lee Ann</button>
+<button onclick="wrong()">黄遵扬老师 Cikgu Wee Chun Yang</button>
+</section>
+
+<section id="q3">
+<h3>谁是学生事务副校长？<br>Siapakah GPK HEM?</h3>
+<img src="fong_cui_fung.jpg">
+<button onclick="wrong()">陈欣柔老师 Cikgu Ting Xing Rou</button>
+<button onclick="correct(4)">冯翠凤老师 Cikgu Fong Cui Fung</button>
+<button onclick="wrong()">刘芸妃老师 Cikgu Lau Yun Hee</button>
+</section>
+
+<section id="q4">
+<h3>谁是课外活动副校长？<br>Siapakah GPK Kokurikulum?</h3>
+<img src="cynthia_ting.jpg">
+<button onclick="wrong()">黄翠玲老师 Cikgu Wong Chui Ling</button>
+<button onclick="correct(5)">陈欣柔老师 Cikgu Cynthia Ting Xing Rou</button>
+<button onclick="wrong()">吴素清老师 Cikgu Goh Su Ching</button>
+</section>
+
+<section id="q5">
+<h3>这位老师是课业辅导老师<br>Guru ini ialah guru pemulihan khas</h3>
+<img src="wee.jpg">
+<button onclick="wrong()">陈学成老师 Cikgu Roland Ting Hock Sing</button>
+<button onclick="correct(6)">黄遵杨老师 Cikgu Wee Chun Yang</button>
+<button onclick="wrong()">江泽锋老师 Cikgu Kong Zhe Fong</button>
+</section>
+
+<section id="q6">
+<h3>Superman 班的级任老师是谁？<br>Guru kelas Superman?</h3>
+<img src="evy.jpg">
+<button onclick="correct(7)">刘佳佳老师 Cikgu Evy Law Jia Jia</button>
+<button onclick="wrong()">黄家旌老师 Cikgu Yuki Ng Jiajing</button>
+<button onclick="wrong()">毛恩义老师 Cikgu Claudia Mo Ong Yi</button>
+</section>
+
+<section id="q7">
+<h3>Ironman 班的级任老师是谁？<br>Guru kelas Ironman?</h3>
+<img src="yuki.jpg">
+<button onclick="wrong()">刘佳佳老师 Cikgu Evy Law Jia Jia</button>
+<button onclick="correct(8)">黄家旌老师 Cikgu Yuki Ng Jiajing</button>
+<button onclick="wrong()">毛恩义老师 Cikgu Claudia Mo Ong Yi</button>
+</section>
+
+<section id="q8">
+<h3>Spiderman 班的级任老师是谁？<br>Guru kelas Spiderman?</h3>
+<img src="claudia.jpg">
+<button onclick="wrong()">刘佳佳老师 Cikgu Evy Law Jia Jia</button>
+<button onclick="correct(9)">毛恩义老师 Cikgu Claudia Mo Ong Yi</button>
+<button onclick="wrong()">黄家旌老师 Cikgu Yuki Ng Jiajing</button>
+</section>
+
+<section id="q9">
+<h3>一年级级任老师是谁？<br>Guru Kelas Tahun 1?</h3>
+<img src="stephen.jpg">
+<button onclick="correct(10)">许如楠老师 Cikgu Stephen Hii Yii Nan</button>
+<button onclick="wrong()">陈学成老师 Cikgu Roland Ting Hock Sing</button>
+<button onclick="wrong()">江泽锋老师 Cikgu Kong Zhe Fong</button>
+</section>
+
+<section id="q10">
+<h3>二年级级任老师是谁？<br>Guru Kelas Tahun 2?</h3>
+<img src="roland.jpg">
+<button onclick="wrong()">许如楠老师 Cikgu Stephen Hii Yii Nan</button>
+<button onclick="correct(11)">陈学成老师 Cikgu Roland Ting Hock Sing</button>
+<button onclick="wrong()">黄遵扬老师 Cikgu Wee Chun Yang</button>
+</section>
+
+<section id="q11">
+<h3>三年级级任老师是谁？<br>Guru Kelas Tahun 3?</h3>
+<img src="unice.jpg">
+<button onclick="wrong()">涂香香老师 Cikgu Tu Hiong Hiong</button>
+<button onclick="correct(12)">黄雯雯老师 Cikgu Unice Wong Wen Wen</button>
+<button onclick="wrong()">刘芸妃老师 Cikgu Lau Yun Hee</button>
+</section>
+
+<section id="q12">
+<h3>四年级级任老师是谁？<br>Guru Kelas Tahun 4?</h3>
+<img src="tu.jpg">
+<button onclick="correct(13)">涂香香老师 Cikgu Tu Hiong Hiong</button>
+<button onclick="wrong()">刘芸妃老师 Cikgu Lau Yun Hee</button>
+<button onclick="wrong()">黄翠玲老师 Cikgu Wong Chui Ling</button>
+</section>
+
+<section id="q13">
+<h3>五年级级任老师是谁？<br>Guru Kelas Tahun 5?</h3>
+<img src="lau.jpg">
+<button onclick="wrong()">涂香香老师 Cikgu Tu Hiong Hiong</button>
+<button onclick="correct(14)">刘芸妃老师 Cikgu Lau Yun Hee</button>
+<button onclick="wrong()">黄翠玲老师 Cikgu Wong Chui Ling</button>
+</section>
+
+<section id="q14">
+<h3>六年级级任老师是谁？<br>Guru Kelas Tahun 6?</h3>
+<img src="wong_chui_ling.jpg">
+<button onclick="wrong()">刘芸妃老师 Cikgu Lau Yun Hee</button>
+<button onclick="correct(15)">黄翠玲老师 Cikgu Wong Chui Ling</button>
+<button onclick="wrong()">黄智媮老师 Cikgu Florence Wong Zhi Yu</button>
+</section>
+
+<section id="q15">
+<h3>看到老师，应该怎么做？<br>Apabila berjumpa guru?</h3>
+<button onclick="wrong()">不理会 / Tidak peduli</button>
+<button onclick="wrong()">赶紧跑走 / Cepat-cepat lari</button>
+<button onclick="correct('end')">问安 / Memberikan salam</button>
+</section>
+
+<section id="end">
+<h2>🎉 恭喜你通关！</h2>
+<p>你已经认识我们的学校和老师了！<br>Syabas! Anda telah mengenali sekolah kita.</p>
+<button onclick="location.reload()" style="background:#1976d2; color:white;">重新开始 / Main Semula</button>
+</section>
+
+<script>
+const bgm = document.getElementById("bgm");
+let playing = false;
+
+function startGame(){ 
+    // 点击开始时尝试播放音乐
+    bgm.play().then(() => {
+        playing = true;
+    }).catch(e => {
+        console.log("浏览器限制了自动播放，需再次手动触发");
+    });
+    show(1); 
+}
+
+function toggleMusic(){ 
+    if(playing) {
+        bgm.pause();
+        document.getElementById("musicBtn").innerText = "🔇";
+    } else {
+        bgm.play();
+        document.getElementById("musicBtn").innerText = "🔊";
+    }
+    playing = !playing; 
+}
+
+function show(n){
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+    document.getElementById("q"+n)?.classList.add("active");
+    window.scrollTo(0,0); 
+}
+
+function correct(n){ 
+    if(n==='end'){
+        document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+        document.getElementById("end").classList.add("active");
+    } else {
+        show(n);
+    }
+}
+
+function wrong(){ 
+    alert("🚨 答错了！警报响起，必须重新开始！\nSalah! Sila mula dari awal."); 
+    location.reload(); 
+}
+</script>
+
+</body>
+</html>
