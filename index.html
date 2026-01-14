@@ -11,17 +11,17 @@
     section { display:none; padding:15px; animation: fadeIn 0.4s; }
     section.active { display:block; }
     .info-container { max-width: 600px; margin: 0 auto; background: white; padding: 15px; border-radius: 15px; }
-    .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 10px; }
+    .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
     .teacher-card { background: #f9f9f9; border-radius: 10px; padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #eee; }
     .teacher-card img { width: 100%; border-radius: 5px; margin-bottom: 5px; }
-    .teacher-card p { font-size: 13px; margin: 3px 0; line-height: 1.3; }
-    .job-title { color: #1976d2; font-weight: bold; }
-    .category-title { background: #1976d2; color: white; padding: 8px; border-radius: 5px; margin: 20px 0 10px; font-weight: bold; }
+    .teacher-card p { font-size: 11px; margin: 2px 0; line-height: 1.3; font-weight: bold; }
+    .job-title { color: #1976d2; font-size: 12px; margin-bottom: 4px !important; }
+    .category-title { background: #1976d2; color: white; padding: 8px; border-radius: 5px; margin: 15px 0 5px; font-weight: bold; }
     .game-img { width: 100%; max-width: 280px; border-radius: 15px; margin: 10px auto; border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-    button { display:block; width:95%; max-width:400px; margin:12px auto; padding:16px; font-size:17px; border-radius:12px; font-weight: bold; border:none; background:white; box-shadow:0 3px 6px rgba(0,0,0,.15); cursor: pointer; color: #1976d2; transition: 0.2s; }
+    button { display:block; width:95%; max-width:400px; margin:10px auto; padding:15px; font-size:15px; border-radius:12px; font-weight: bold; border:none; background:white; box-shadow:0 3px 6px rgba(0,0,0,.15); cursor: pointer; color: #1976d2; }
     button.primary { background: #1976d2; color: white; }
     button:active { transform: scale(0.97); background: #e3f2fd; }
-    .wish-card { background: white; padding: 25px; border-radius: 20px; border-left: 8px solid #43a047; text-align: left; margin: 20px auto; width: 85%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .wish-card { background: white; padding: 20px; border-radius: 15px; border-left: 8px solid #43a047; text-align: left; margin: 20px auto; width: 85%; }
     #musicBtn { position:fixed; top:12px; right:12px; font-size:20px; z-index: 1100; background: white; border-radius: 50%; width: 45px; height: 45px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
@@ -39,120 +39,139 @@
 <section id="start" class="active">
     <img src="school_front.jpg" class="game-img">
     <h3>欢迎来到校园大冒险！</h3>
-    <p>挑战开始前，请先认识我们的老师职员。<br>Sila kenali staf sekolah sebelum bermula.</p>
-    <button class="primary" onclick="show('info')">查看信息图 / Lihat Info</button>
+    <button class="primary" onclick="show('info')">查看信息图 / Info Guru</button>
 </section>
 
 <section id="info">
     <div class="info-container">
-        <h3>📖 老师职员名录 / Info Staf</h3>
-        
-        <div class="category-title">行政团队 / Pentadbir</div>
+        <div class="category-title">行政团队 Pentadbir</div>
         <div class="info-grid">
-            <div class="teacher-card"><img src="ling_lee_ann.jpg"><p class="job-title">校长 Guru Besar</p><p>林礼安 Ling Lee Ann</p></div>
-            <div class="teacher-card"><img src="kong_zhe_fong.jpg"><p class="job-title">行政副校长 GPK 1</p><p>江泽锋 Kong Zhe Fong</p></div>
-            <div class="teacher-card"><img src="fong_cui_fung.jpg"><p class="job-title">学生事务副校长 GPK HEM</p><p>冯翠凤 Fong Cui Fung</p></div>
-            <div class="teacher-card"><img src="cynthia_ting.jpg"><p class="job-title">课外活动副校长 GPK KOKU</p><p>陈欣柔 Cynthia Ting</p></div>
+            <div class="teacher-card"><img src="ling_lee_ann.jpg"><p class="job-title">校长 Guru Besar</p><p>林礼安 LING LEE ANN</p></div>
+            <div class="teacher-card"><img src="kong_zhe_fong.jpg"><p class="job-title">GPK 1</p><p>江泽锋 KONG ZHE FONG</p></div>
+            <div class="teacher-card"><img src="fong_cui_fung.jpg"><p class="job-title">GPK HEM</p><p>冯翠凤 FONG CUI FUNG</p></div>
+            <div class="teacher-card"><img src="cynthia_ting.jpg"><p class="job-title">GPK KOKU</p><p>陈欣柔 CYNTHIA TING XING ROU</p></div>
         </div>
 
-        <div class="category-title">学前教育班 / Prasekolah</div>
+        <div class="category-title">学前班 Prasekolah</div>
         <div class="info-grid">
-            <div class="teacher-card"><img src="evy.jpg"><p class="job-title">Superman 班级任</p><p>刘佳佳 Evy Law</p></div>
-            <div class="teacher-card"><img src="yuki.jpg"><p class="job-title">Ironman 班级任</p><p>黄家旌 Yuki Ng</p></div>
-            <div class="teacher-card"><img src="claudia.jpg"><p class="job-title">Spiderman 班级任</p><p>毛恩义 Claudia Mo</p></div>
+            <div class="teacher-card"><img src="evy.jpg"><p class="job-title">Superman</p><p>刘佳佳 EVY LAW JIA JIA</p></div>
+            <div class="teacher-card"><img src="yuki.jpg"><p class="job-title">Ironman</p><p>黄家旌 YUKI NG JIAJING</p></div>
+            <div class="teacher-card"><img src="claudia.jpg"><p class="job-title">Spiderman</p><p>毛恩义 CLAUDIA MO ONG YI</p></div>
         </div>
 
-        <div class="category-title">各年级级任 / Guru Kelas</div>
+        <div class="category-title">特别职位与学术老师</div>
         <div class="info-grid">
-            <div class="teacher-card"><img src="stephen.jpg"><p class="job-title">一年级 Tahun 1</p><p>许如楠 Stephen Hii</p></div>
-            <div class="teacher-card"><img src="roland.jpg"><p class="job-title">二年级 Tahun 2</p><p>陈学成 Roland Ting</p></div>
-            <div class="teacher-card"><img src="unice.jpg"><p class="job-title">三年级 Tahun 3</p><p>黄雯雯 Unice Wong</p></div>
-            <div class="teacher-card"><img src="tu.jpg"><p class="job-title">四年级 Tahun 4</p><p>涂香香 Tu Hiong Hiong</p></div>
-            <div class="teacher-card"><img src="lau.jpg"><p class="job-title">五年级 Tahun 5</p><p>刘芸妃 Lau Yun Hee</p></div>
-            <div class="teacher-card"><img src="wong_chui_ling.jpg"><p class="job-title">六年级 Tahun 6</p><p>黄翠玲 Wong Chui Ling</p></div>
-        </div>
-
-        <div class="category-title">特别职位与学术老师 / Guru Khas & Akademik</div>
-        <div class="info-grid">
-            <div class="teacher-card"><img src="wee_chun_yang.jpg"><p class="job-title">辅导老师 Guru Pemulihan</p><p>黄遵扬 Wee Chun Yang</p></div>
-            <div class="teacher-card"><img src="zafrullah.jpg"><p class="job-title">宗教老师 Guru Agama Islam</p><p>Zafrullah Bin Mohd Sabri</p></div>
-            <div class="teacher-card"><img src="florence_wong.jpg"><p class="job-title">学术老师 Guru Akademik</p><p>黄智媮 Florence Wong Zhi Yu</p></div>
-            <div class="teacher-card"><img src="goh_su_ching.jpg"><p class="job-title">学术老师 Guru Akademik</p><p>吴素清 Goh Su Ching</p></div>
-            <div class="teacher-card"><img src="sharmaine.jpg"><p class="job-title">学术老师 Guru Akademik</p><p>Sharmaine Daphne</p></div>
+            <div class="teacher-card"><img src="zafrullah.jpg"><p class="job-title">宗教老师 Guru Agama</p><p>ZAFRULLAH BIN MOHD SABRI</p></div>
+            <div class="teacher-card"><img src="wee.jpg"><p class="job-title">辅导老师 Guru Pemulihan</p><p>黄遵扬 WEE CHUN YANG</p></div>
+            <div class="teacher-card"><img src="florence_wong.jpg"><p class="job-title">学术老师 Guru Akademik</p><p>黄智媮 FLORENCE WONG ZHI YU</p></div>
+            <div class="teacher-card"><img src="goh_su_ching.jpg"><p class="job-title">学术老师 Guru Akademik</p><p>吴素清 GOH SU CHING</p></div>
+            <div class="teacher-card"><img src="sharmaine.jpg"><p class="job-title">学术老师 Guru Akademik</p><p>SHARMAINE DAPHNE ANAK SLYVESTER BAKAR</p></div>
         </div>
     </div>
-    <button class="primary" onclick="startGame()">我准备好了，开始挑战！</button>
+    <button class="primary" onclick="startGame()">开始挑战 / Mula</button>
 </section>
 
 <section id="q1">
-    <h3>谁是我们的校长？</h3>
+    <h3>谁是我们的校长？<br>Siapakah Guru Besar kita?</h3>
     <img src="ling_lee_ann.jpg" class="game-img">
-    <button onclick="wrong()">江泽锋 Kong Zhe Fong</button>
-    <button onclick="correct(2)">林礼安 Ling Lee Ann</button>
-    <button onclick="wrong()">黄遵扬 Wee Chun Yang</button>
+    <button onclick="wrong()">江泽锋 KONG ZHE FONG</button>
+    <button onclick="correct(2)">林礼安 LING LEE ANN</button>
+    <button onclick="wrong()">黄遵扬 WEE CHUN YANG</button>
 </section>
 
-<section id="q19">
-    <h3>这位宗教老师(Guru Agama Islam)是谁？</h3>
+<section id="q2">
+    <h3>谁是行政副校长？(GPK 1)</h3>
+    <img src="kong_zhe_fong.jpg" class="game-img">
+    <button onclick="correct(3)">江泽锋 KONG ZHE FONG</button>
+    <button onclick="wrong()">陈欣柔 CYNTHIA TING XING ROU</button>
+</section>
+
+<section id="q3">
+    <h3>谁是我们的宗教老师？<br>Guru Agama Islam</h3>
     <img src="zafrullah.jpg" class="game-img">
-    <button onclick="correct(20)">Zafrullah Bin Mohd Sabri</button>
-    <button onclick="wrong()">Stephen Hii</button>
-    <button onclick="wrong()">Roland Ting</button>
+    <button onclick="correct(4)">ZAFRULLAH BIN MOHD SABRI</button>
+    <button onclick="wrong()">黄智媮 FLORENCE WONG ZHI YU</button>
 </section>
 
-<section id="q20">
-    <h3>这是哪位学术老师？</h3>
+<section id="q4">
+    <h3>谁是 Superman 班的级任老师？</h3>
+    <img src="evy.jpg" class="game-img">
+    <button onclick="wrong()">黄家旌 YUKI NG JIAJING</button>
+    <button onclick="correct(5)">刘佳佳 EVY LAW JIA JIA</button>
+</section>
+
+<section id="q5">
+    <h3>这位辅导老师是谁？<br>Guru Pemulihan Khas</h3>
+    <img src="wee.jpg" class="game-img">
+    <button onclick="correct(6)">黄遵扬 WEE CHUN YANG</button>
+    <button onclick="wrong()">吴素清 GOH SU CHING</button>
+</section>
+
+<section id="q6">
+    <h3>这位学术老师是谁？</h3>
     <img src="florence_wong.jpg" class="game-img">
-    <button onclick="wrong()">Goh Su Ching</button>
-    <button onclick="correct(21)">黄智媮 Florence Wong Zhi Yu</button>
-    <button onclick="wrong()">Unice Wong</button>
+    <button onclick="wrong()">吴素清 GOH SU CHING</button>
+    <button onclick="correct(7)">黄智媮 FLORENCE WONG ZHI YU</button>
 </section>
 
-<section id="q21">
-    <h3>这是学校的哪个地方？</h3>
+<section id="q7">
+    <h3>这位学术老师是谁？</h3>
+    <img src="sharmaine.jpg" class="game-img">
+    <button onclick="correct(8)">SHARMAINE DAPHNE ANAK SLYVESTER BAKAR</button>
+    <button onclick="wrong()">陈欣柔 CYNTHIA TING XING ROU</button>
+</section>
+
+<section id="q8">
+    <h3>这是校园的哪个地点？<br>Di manakah tempat ini?</h3>
     <img src="dewan.jpg" class="game-img">
-    <button onclick="correct(22)">礼堂 Dewan Sekolah</button>
-    <button onclick="wrong()">食堂 Kantin</button>
+    <button onclick="correct(9)">礼堂 Dewan Sekolah</button>
+    <button onclick="wrong()">行政室 Pejabat Am</button>
 </section>
 
-<section id="q22">
-    <h3>看到老师，应该怎么做？</h3>
-    <button onclick="wrong()">跑走 / Lari</button>
-    <button onclick="correct('end')">问安 / Memberi salam</button>
+<section id="q9">
+    <h3>处理学校事务和找职员的地方：<br>Tempat urusan sekolah</h3>
+    <img src="pejabat.jpg" class="game-img">
+    <button onclick="correct(10)">行政室 Pejabat Am</button>
+    <button onclick="wrong()">图书馆 Pusat Sumber</button>
+</section>
+
+<section id="q10">
+    <h3>看到老师，应该怎么做？<br>Bila jumpa guru?</h3>
+    <button onclick="wrong()">不理会 Tidak peduli</button>
+    <button onclick="correct('end')">问安 Memberi salam</button>
 </section>
 
 <section id="end">
-    <h2 style="color: #43a047;">🎉 恭喜通关！TAHNIAH!</h2>
+    <h2 style="color: #43a047;">🎉 恭喜通关！</h2>
     <div class="wish-card">
         <p><strong>学校寄语 Pesan Sekolah：</strong></p>
         <p>保持安全，保持积极，我们共同面对挑战，学校时刻想念大家。</p>
         <hr>
         <p><em>Kekal Selamat, Kekal Positif, Kita hadapi cabaran ini bersama-sama. Pihak sekolah sentiasa merindui anda semua.</em></p>
     </div>
-    <button class="primary" onclick="location.reload()">重新挑战 / Main Semula</button>
+    <button class="primary" onclick="location.reload()">重新开始 Main Semula</button>
 </section>
 
 <script>
     const bgm = document.getElementById("bgm");
-    let playing = false;
     function show(id) {
         document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
         document.getElementById(id).classList.add("active");
         window.scrollTo(0,0);
     }
-    function startGame() { bgm.play().catch(e => {}); playing = true; show('q1'); }
+    function startGame() { bgm.play().catch(e=>{}); show('q1'); }
     function toggleMusic() {
-        if(playing) { bgm.pause(); document.getElementById("musicBtn").innerText = "🔇"; }
-        else { bgm.play(); document.getElementById("musicBtn").innerText = "🔊"; }
-        playing = !playing;
+        const btn = document.getElementById("musicBtn");
+        if(bgm.paused) { bgm.play(); btn.innerText="🔊"; }
+        else { bgm.pause(); btn.innerText="🔇"; }
     }
     function correct(n) {
         if(n === 'end') { show('end'); fireConfetti(); }
         else { show('q' + n); }
     }
-    function wrong() { alert("🚨 Salah! Sila mula dari awal."); location.reload(); }
+    function wrong() { alert("🚨 答错了！你需要重新挑战！\nSalah! Sila mula dari awal."); location.reload(); }
     function fireConfetti() {
-        var end = Date.now() + (4 * 1000);
+        var end = Date.now() + 3000;
         (function frame() {
             confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 } });
             confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 } });
