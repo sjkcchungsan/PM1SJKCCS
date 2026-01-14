@@ -8,16 +8,17 @@
 <style>
     body { font-family: 'Helvetica Neue', Arial, sans-serif; background:#f0f4f8; text-align:center; margin:0; padding-bottom: 50px; color: #333; }
     header { background:#1976d2; color:white; padding:15px; position: sticky; top: 0; z-index: 1000; }
+    #stats-bar { background: #bbdefb; padding: 10px; position: sticky; top: 60px; z-index: 999; display: flex; justify-content: center; align-items: center; gap: 20px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     section { display:none; padding:15px; }
     .active { display:block !important; animation: fadeIn 0.3s; }
     .info-container { max-width: 600px; margin: 0 auto; background: white; padding: 15px; border-radius: 15px; text-align: left; }
     .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 5px; }
     .teacher-card { background: #f9f9f9; border-radius: 8px; padding: 8px; border: 1px solid #eee; text-align: center; }
-    .teacher-card img { width: 100%; border-radius: 5px; margin-bottom: 5px; }
+    .teacher-card img { width: 100%; border-radius: 5px; margin-bottom: 5px; background: #eee; }
     .teacher-card p { font-size: 11px; margin: 2px 0; line-height: 1.2; font-weight: bold; }
     .job-title { color: #1976d2; font-size: 11px; margin-bottom: 3px !important; }
     .category-title { background: #1976d2; color: white; padding: 6px; border-radius: 5px; margin: 15px 0 5px; font-weight: bold; text-align: center; }
-    .game-img { width: 100%; max-width: 280px; border-radius: 15px; margin: 10px auto; border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .game-img { width: 100%; max-width: 280px; border-radius: 15px; margin: 10px auto; border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); background: #eee; }
     button { display:block; width:95%; max-width:400px; margin:10px auto; padding:15px; font-size:15px; border-radius:12px; font-weight: bold; border:none; background:white; box-shadow:0 3px 6px rgba(0,0,0,.15); cursor: pointer; color: #1976d2; }
     button.primary { background: #1976d2 !important; color: white !important; }
     .wish-card { background: white; padding: 20px; border-radius: 15px; border-left: 8px solid #43a047; text-align: left; margin: 20px auto; width: 85%; }
@@ -32,269 +33,296 @@
     <p>Kenali Sekolah Kita</p>
 </header>
 
+<div id="stats-bar" style="display: none;">
+    <span>❤️ 生命值 Nyawa: <span id="lives-display">❤️❤️❤️</span></span>
+</div>
+
 <button id="musicBtn" onclick="toggleMusic()">🔊</button>
-<audio id="bgm" loop preload="auto"><source src="calm.mp3" type="audio/mpeg"></audio>
+<audio id="bgm" loop><source src="calm.mp3" type="audio/mpeg"></audio>
 
 <section id="start" class="active">
     <img src="school_front.jpg" class="game-img">
-    <h3>欢迎来到校园大冒险！Mari terokai sekolah</h3>
-    <button class="primary" onclick="nav('info')">查看老师名录 / Info Guru</button>
+    <h3>欢迎来到校园大冒险！<br>Mari terokai sekolah kita!</h3>
+    <button class="primary" onclick="nav('info')">查看全员名录 / Lihat Info Guru & AKP</button>
 </section>
 
 <section id="info">
     <div class="info-container">
         <div class="category-title">行政团队 Pentadbir</div>
         <div class="info-grid">
-            <div class="teacher-card"><img src="ling_lee_ann.jpg"><p class="job-title">校长</p><p>林礼安 LING LEE ANN</p></div>
-            <div class="teacher-card"><img src="kong_zhe_fong.jpg"><p class="job-title">行政事务副校长 GPKP</p><p>江泽锋 KONG ZHE FONG</p></div>
-            <div class="teacher-card"><img src="fong_cui_fung.jpg"><p class="job-title">学生事务副校长 GPK HEM</p><p>冯翠凤 FONG CUI FUNG</p></div>
-            <div class="teacher-card"><img src="cynthia_ting.jpg"><p class="job-title">课外活动副校长 GPK KOKU</p><p>陈欣柔 CYNTHIA TING XING ROU</p></div>
+            <div class="teacher-card"><img src="ling_lee_ann.jpg"><p>林礼安 LING LEE ANN</p></div>
+            <div class="teacher-card"><img src="kong_zhe_fong.jpg"><p>江泽锋 KONG ZHE FONG</p></div>
+            <div class="teacher-card"><img src="fong_cui_fung.jpg"><p>冯翠凤 FONG CUI FUNG</p></div>
+            <div class="teacher-card"><img src="cynthia_ting.jpg"><p>陈欣柔 CYNTHIA TING XING ROU</p></div>
         </div>
 
         <div class="category-title">执行组人员 AKP</div>
         <div class="info-grid">
-            <div class="teacher-card"><img src="efira.jpg"><p class="job-title">AKP</p><p>EFIRA NAZATION ANAK KENNEDY</p></div>
-            <div class="teacher-card"><img src="faizah.jpg"><p class="job-title">AKP</p><p>FAIZAH BINTI OTHMAN</p></div>
-            <div class="teacher-card"><img src="mariani.jpg"><p class="job-title">AKP</p><p>MARIANI BINTI HAILI</p></div>
-            <div class="teacher-card"><img src="stacy.jpg"><p class="job-title">AKP</p><p>STACY WAN</p></div>
+            <div class="teacher-card"><img src="efira.jpg"><p>EFIRA NAZATION ANAK KENNEDY</p></div>
+            <div class="teacher-card"><img src="faizah.jpg"><p>FAIZAH BINTI OTHMAN</p></div>
+            <div class="teacher-card"><img src="mariani.jpg"><p>MARIANI BINTI HAILI</p></div>
+            <div class="teacher-card"><img src="stacy.jpg"><p>STACY WAN</p></div>
         </div>
 
-        <div class="category-title">学前教育班 & 级任 Guru Kelas</div>
+        <div class="category-title">级任老师 Guru Kelas</div>
         <div class="info-grid">
-            <div class="teacher-card"><img src="evy.jpg"><p class="job-title">Superman</p><p>刘佳佳 EVY LAW JIA JIA</p></div>
-            <div class="teacher-card"><img src="yuki.jpg"><p class="job-title">Ironman</p><p>黄家旌 YUKI NG JIAJING</p></div>
-            <div class="teacher-card"><img src="claudia.jpg"><p class="job-title">Spiderman</p><p>毛恩义 CLAUDIA MO ONG YI</p></div>
-            <div class="teacher-card"><img src="stephen.jpg"><p class="job-title">一年级 Tahun 1</p><p>许如楠 STEPHEN HII YII NAN</p></div>
-            <div class="teacher-card"><img src="roland.jpg"><p class="job-title">二年级 Tahun 2</p><p>陈学成 ROLAND TING HOCK SING</p></div>
-            <div class="teacher-card"><img src="unice.jpg"><p class="job-title">三年级 Tahun 3</p><p>黄雯雯 UNICE WONG WEN WEN</p></div>
-            <div class="teacher-card"><img src="tu.jpg"><p class="job-title">四年级 Tahun 4</p><p>涂香香 TU HIONG HIONG</p></div>
-            <div class="teacher-card"><img src="lau.jpg"><p class="job-title">五年级 Tahun 5</p><p>刘芸妃 LAU YUN HEE</p></div>
-            <div class="teacher-card"><img src="wong_chui_ling.jpg"><p class="job-title">六年级 Tahun 6</p><p>黄翠玲 WONG CHUI LING</p></div>
+            <div class="teacher-card"><img src="evy.jpg"><p>刘佳佳 EVY LAW JIA JIA</p></div>
+            <div class="teacher-card"><img src="yuki.jpg"><p>黄家旌 YUKI NG JIAJING</p></div>
+            <div class="teacher-card"><img src="claudia.jpg"><p>毛恩义 CLAUDIA MO ONG YI</p></div>
+            <div class="teacher-card"><img src="stephen.jpg"><p>许如楠 STEPHEN HII YII NAN</p></div>
+            <div class="teacher-card"><img src="roland.jpg"><p>陈学成 ROLAND TING HOCK SING</p></div>
+            <div class="teacher-card"><img src="unice.jpg"><p>黄雯雯 UNICE WONG WEN WEN</p></div>
+            <div class="teacher-card"><img src="tu.jpg"><p>涂香香 TU HIONG HIONG</p></div>
+            <div class="teacher-card"><img src="lau.jpg"><p>刘芸妃 LAU YUN HEE</p></div>
+            <div class="teacher-card"><img src="wong_chui_ling.jpg"><p>黄翠玲 WONG CHUI LING</p></div>
         </div>
 
         <div class="category-title">特别职位与学术老师</div>
         <div class="info-grid">
-            <div class="teacher-card"><img src="zafrullah.jpg"><p class="job-title">宗教</p><p>ZAFRULLAH BIN MOHD SABRI</p></div>
-            <div class="teacher-card"><img src="wee.jpg"><p class="job-title">课业辅导</p><p>黄遵扬 WEE CHUN YANG</p></div>
-            <div class="teacher-card"><img src="florence_wong.jpg"><p class="job-title">学术</p><p>黄智媮 FLORENCE WONG ZHI YU</p></div>
-            <div class="teacher-card"><img src="goh_su_ching.jpg"><p class="job-title">学术</p><p>吴素清 GOH SU CHING</p></div>
-            <div class="teacher-card"><img src="sharmaine.jpg"><p class="job-title">学术</p><p>SHARMAINE DAPHNE ANAK SLYVESTER BAKAR</p></div>
+            <div class="teacher-card"><img src="zafrullah.jpg"><p>ZAFRULLAH BIN MOHD SABRI</p></div>
+            <div class="teacher-card"><img src="wee.jpg"><p>黄遵扬 WEE CHUN YANG</p></div>
+            <div class="teacher-card"><img src="florence_wong.jpg"><p>黄智媮 FLORENCE WONG ZHI YU</p></div>
+            <div class="teacher-card"><img src="goh_su_ching.jpg"><p>吴素清 GOH SU CHING</p></div>
+            <div class="teacher-card"><img src="sharmaine.jpg"><p>SHARMAINE DAPHNE ANAK SLYVESTER BAKAR</p></div>
         </div>
     </div>
-    <button class="primary" onclick="startQuiz()">我记住了，开始挑战！Saya sudah ingat. Jom kita mula!</button>
+    <button class="primary" onclick="startQuiz()">开始挑战 (3 ❤️) / Mula Cabaran</button>
 </section>
 
 <section id="q1">
     <h3>1. 谁是我们的校长？<br>Siapakah Guru Besar kita?</h3>
     <img src="ling_lee_ann.jpg" class="game-img">
-    <button onclick="wrong()">江泽锋 KONG ZHE FONG</button>
-    <button onclick="nav('q2')">林礼安 LING LEE ANN</button>
-    <button onclick="wrong()">黄遵扬 WEE CHUN YANG</button>
+    <button onclick="check(false)">江泽锋 KONG ZHE FONG</button>
+    <button onclick="check(true,'q2')">林礼安 LING LEE ANN</button>
 </section>
 
 <section id="q2">
-    <h3>2. 谁是行政副校长？(GPK 1)</h3>
+    <h3>2. 谁是行政副校长？<br>Siapakah GPK Pentadbiran kita? (GPK 1)</h3>
     <img src="kong_zhe_fong.jpg" class="game-img">
-    <button onclick="nav('q3')">江泽锋 KONG ZHE FONG</button>
-    <button onclick="wrong()">陈欣柔 CYNTHIA TING XING ROU</button>
+    <button onclick="check(true,'q3')">江泽锋 KONG ZHE FONG</button>
+    <button onclick="check(false)">冯翠凤 FONG CUI FUNG</button>
 </section>
 
 <section id="q3">
-    <h3>3. 谁是学生事务副校长？(GPK HEM)</h3>
+    <h3>3. 谁是学生事务副校长？<br>Siapakah GPK Hal Ehwal Murid kita? (GPK HEM)</h3>
     <img src="fong_cui_fung.jpg" class="game-img">
-    <button onclick="nav('q4')">冯翠凤 FONG CUI FUNG</button>
-    <button onclick="wrong()">MARIANI BINTI HAILI</button>
+    <button onclick="check(false)">陈欣柔 CYNTHIA TING XING ROU</button>
+    <button onclick="check(true,'q4')">冯翠凤 FONG CUI FUNG</button>
 </section>
 
 <section id="q4">
-    <h3>4. 谁是课外活动副校长？(GPK KOKU)</h3>
+    <h3>4. 谁是课外活动副校长？<br>Siapakah GPK Kokurikulum kita? (GPK KOKU)</h3>
     <img src="cynthia_ting.jpg" class="game-img">
-    <button onclick="wrong()">STACY WAN</button>
-    <button onclick="nav('q5')">陈欣柔 CYNTHIA TING XING ROU</button>
+    <button onclick="check(true,'q5')">陈欣柔 CYNTHIA TING XING ROU</button>
+    <button onclick="check(false)">许如楠 STEPHEN HII YII NAN</button>
 </section>
 
 <section id="q5">
-    <h3>5. 这位执行组人员(AKP)是谁？</h3>
+    <h3>5. 这位 AKP 执行组人员是谁？<br>Siapakah AKP ini?</h3>
     <img src="efira.jpg" class="game-img">
-    <button onclick="nav('q6')">EFIRA NAZATION ANAK KENNEDY</button>
-    <button onclick="wrong()">FAIZAH BINTI OTHMAN</button>
+    <button onclick="check(true,'q6')">EFIRA NAZATION ANAK KENNEDY</button>
+    <button onclick="check(false)">FAIZAH BINTI OTHMAN</button>
 </section>
 
 <section id="q6">
-    <h3>6. 这位执行组人员(AKP)是谁？</h3>
+    <h3>6. 这位 AKP 执行组人员是谁？<br>Siapakah AKP ini?</h3>
     <img src="faizah.jpg" class="game-img">
-    <button onclick="wrong()">MARIANI BINTI HAILI</button>
-    <button onclick="nav('q7')">FAIZAH BINTI OTHMAN</button>
+    <button onclick="check(false)">MARIANI BINTI HAILI</button>
+    <button onclick="check(true,'q7')">FAIZAH BINTI OTHMAN</button>
 </section>
 
 <section id="q7">
-    <h3>7. 这位执行组人员(AKP)是谁？</h3>
+    <h3>7. 这位 AKP 执行组人员是谁？<br>Siapakah AKP ini?</h3>
     <img src="mariani.jpg" class="game-img">
-    <button onclick="nav('q8')">MARIANI BINTI HAILI</button>
-    <button onclick="wrong()">STACY WAN</button>
+    <button onclick="check(true,'q8')">MARIANI BINTI HAILI</button>
+    <button onclick="check(false)">STACY WAN</button>
 </section>
 
 <section id="q8">
-    <h3>8. 这位执行组人员(AKP)是谁？</h3>
+    <h3>8. 这位 AKP 执行组人员是谁？<br>Siapakah AKP ini?</h3>
     <img src="stacy.jpg" class="game-img">
-    <button onclick="wrong()">EFIRA NAZATION</button>
-    <button onclick="nav('q9')">STACY WAN</button>
+    <button onclick="check(false)">EFIRA NAZATION ANAK KENNEDY</button>
+    <button onclick="check(true,'q9')">STACY WAN</button>
 </section>
 
 <section id="q9">
-    <h3>9. Superman 班级任老师是谁？</h3>
+    <h3>9. Superman 班级任老师是谁？<br>Guru kelas prasekolah Superman?</h3>
     <img src="evy.jpg" class="game-img">
-    <button onclick="nav('q10')">刘佳佳 EVY LAW JIA JIA</button>
-    <button onclick="wrong()">黄家旌 YUKI NG JIAJING</button>
+    <button onclick="check(true,'q10')">刘佳佳 EVY LAW JIA JIA</button>
+    <button onclick="check(false)">黄家旌 YUKI NG JIAJING</button>
 </section>
 
 <section id="q10">
-    <h3>10. Ironman 班级任老师是谁？</h3>
+    <h3>10. Ironman 班级任老师是谁？<br>Guru kelas prasekolah Ironman?</h3>
     <img src="yuki.jpg" class="game-img">
-    <button onclick="wrong()">毛恩义 CLAUDIA MO</button>
-    <button onclick="nav('q11')">黄家旌 YUKI NG JIAJING</button>
+    <button onclick="check(false)">刘佳佳 EVY LAW JIA JIA</button>
+    <button onclick="check(true,'q11')">黄家旌 YUKI NG JIAJING</button>
 </section>
 
 <section id="q11">
-    <h3>11. Spiderman 班级任老师是谁？</h3>
+    <h3>11. Spiderman 班级任老师是谁？<br>Guru kelas prasekolah Spiderman?</h3>
     <img src="claudia.jpg" class="game-img">
-    <button onclick="nav('q12')">毛恩义 CLAUDIA MO ONG YI</button>
-    <button onclick="wrong()">刘佳佳 EVY LAW JIA JIA</button>
+    <button onclick="check(true,'q12')">毛恩义 CLAUDIA MO ONG YI</button>
+    <button onclick="check(false)">陈学成 ROLAND TING HOCK SING</button>
 </section>
 
 <section id="q12">
-    <h3>12. 一年级级任老师是谁？</h3>
+    <h3>12. 一年级级任老师是谁？<br>Siapakah guru kelas Tahun 1?</h3>
     <img src="stephen.jpg" class="game-img">
-    <button onclick="nav('q13')">许如楠 STEPHEN HII YII NAN</button>
-    <button onclick="wrong()">陈学成 ROLAND TING</button>
+    <button onclick="check(true,'q13')">许如楠 STEPHEN HII YII NAN</button>
+    <button onclick="check(false)">陈学成 ROLAND TING HOCK SING</button>
 </section>
 
 <section id="q13">
-    <h3>13. 二年级级任老师是谁？</h3>
+    <h3>13. 二年级级任老师是谁？<br>Siapakah guru kelas Tahun 2?</h3>
     <img src="roland.jpg" class="game-img">
-    <button onclick="nav('q14')">陈学成 ROLAND TING HOCK SING</button>
-    <button onclick="wrong()">黄雯雯 UNICE WONG</button>
+    <button onclick="check(false)">吴素清 GOH SU CHING</button>
+    <button onclick="check(true,'q14')">陈学成 ROLAND TING HOCK SING</button>
 </section>
 
 <section id="q14">
-    <h3>14. 三年级级任老师是谁？</h3>
+    <h3>14. 三年级级任老师是谁？<br>Siapakah guru kelas Tahun 3?</h3>
     <img src="unice.jpg" class="game-img">
-    <button onclick="wrong()">涂香香 TU HIONG HIONG</button>
-    <button onclick="nav('q15')">黄雯雯 UNICE WONG WEN WEN</button>
+    <button onclick="check(true,'q15')">黄雯雯 UNICE WONG WEN WEN</button>
+    <button onclick="check(false)">涂香香 TU HIONG HIONG</button>
 </section>
 
 <section id="q15">
-    <h3>15. 四年级级任老师是谁？</h3>
+    <h3>15. 四年级级任老师是谁？<br>Siapakah guru kelas Tahun 4?</h3>
     <img src="tu.jpg" class="game-img">
-    <button onclick="nav('q16')">涂香香 TU HIONG HIONG</button>
-    <button onclick="wrong()">刘芸妃 LAU YUN HEE</button>
+    <button onclick="check(false)">刘芸妃 LAU YUN HEE</button>
+    <button onclick="check(true,'q16')">涂香香 TU HIONG HIONG</button>
 </section>
 
 <section id="q16">
-    <h3>16. 五年级级任老师是谁？</h3>
+    <h3>16. 五年级级任老师是谁？<br>Siapakah guru kelas Tahun 5?</h3>
     <img src="lau.jpg" class="game-img">
-    <button onclick="wrong()">黄翠玲 WONG CHUI LING</button>
-    <button onclick="nav('q17')">刘芸妃 LAU YUN HEE</button>
+    <button onclick="check(true,'q17')">刘芸妃 LAU YUN HEE</button>
+    <button onclick="check(false)">黄翠玲 WONG CHUI LING</button>
 </section>
 
 <section id="q17">
-    <h3>17. 六年级级任老师是谁？</h3>
+    <h3>17. 六年级级任老师是谁？<br>Siapakah guru kelas Tahun 6?</h3>
     <img src="wong_chui_ling.jpg" class="game-img">
-    <button onclick="nav('q18')">黄翠玲 WONG CHUI LING</button>
-    <button onclick="wrong()">许如楠 STEPHEN HII</button>
+    <button onclick="check(false)">黄雯雯 UNICE WONG WEN WEN</button>
+    <button onclick="check(true,'q18')">黄翠玲 WONG CHUI LING</button>
 </section>
 
 <section id="q18">
-    <h3>18. 谁是我们的宗教老师？</h3>
+    <h3>18. 谁是宗教老师？<br>Siapakah guru Pendidikan Islam?</h3>
     <img src="zafrullah.jpg" class="game-img">
-    <button onclick="nav('q19')">ZAFRULLAH BIN MOHD SABRI</button>
-    <button onclick="wrong()">黄智媮 FLORENCE WONG</button>
+    <button onclick="check(true,'q19')">ZAFRULLAH BIN MOHD SABRI</button>
+    <button onclick="check(false)">黄遵扬 WEE CHUN YANG</button>
 </section>
 
 <section id="q19">
-    <h3>19. 谁是课业辅导老师？</h3>
+    <h3>19. 谁是课业辅导老师？<br>Siapakah guru pemulihan?</h3>
     <img src="wee.jpg" class="game-img">
-    <button onclick="wrong()">FAIZAH BINTI OTHMAN</button>
-    <button onclick="nav('q20')">黄遵扬 WEE CHUN YANG</button>
+    <button onclick="check(false)">江泽锋 KONG ZHE FONG</button>
+    <button onclick="check(true,'q20')">黄遵扬 WEE CHUN YANG</button>
 </section>
 
 <section id="q20">
-    <h3>20. 这位学术老师是谁？</h3>
+    <h3>20. 这位学术老师是谁？<br>Siapakah guru akademik ini?</h3>
     <img src="florence_wong.jpg" class="game-img">
-    <button onclick="nav('q21')">黄智媮 FLORENCE WONG ZHI YU</button>
-    <button onclick="wrong()">吴素清 GOH SU CHING</button>
+    <button onclick="check(true,'q21')">黄智媮 FLORENCE WONG ZHI YU</button>
+    <button onclick="check(false)">吴素清 GOH SU CHING</button>
 </section>
 
 <section id="q21">
-    <h3>21. 这位学术老师是谁？</h3>
+    <h3>21. 这位学术老师是谁？<br>Siapakah guru akademik ini?</h3>
     <img src="goh_su_ching.jpg" class="game-img">
-    <button onclick="wrong()">EFIRA NAZATION</button>
-    <button onclick="nav('q22')">吴素清 GOH SU CHING</button>
+    <button onclick="check(false)">SHARMAINE DAPHNE</button>
+    <button onclick="check(true,'q22')">吴素清 GOH SU CHING</button>
 </section>
 
 <section id="q22">
-    <h3>22. 这位学术老师是谁？</h3>
+    <h3>22. 这位学术老师是谁？<br>Siapakah guru akademik ini?</h3>
     <img src="sharmaine.jpg" class="game-img">
-    <button onclick="nav('q23')">SHARMAINE DAPHNE ANAK SLYVESTER BAKAR</button>
-    <button onclick="wrong()">MARIANI BINTI HAILI</button>
+    <button onclick="check(true,'q23')">SHARMAINE DAPHNE ANAK SLYVESTER BAKAR</button>
+    <button onclick="check(false)">FAIZAH BINTI OTHMAN</button>
 </section>
 
 <section id="q23">
-    <h3>23. 这是校园的哪个地点？</h3>
+    <h3>23. 这是校园的哪个地点？<br>Apakah nama tempat ini?</h3>
     <img src="dewan.jpg" class="game-img">
-    <button onclick="nav('q24')">礼堂 Dewan Sekolah</button>
-    <button onclick="wrong()">食堂 Kantin</button>
+    <button onclick="check(true,'q24')">礼堂 Dewan Sekolah</button>
+    <button onclick="check(false)">食堂 Kantin</button>
 </section>
 
 <section id="q24">
-    <h3>24. 下课买食物的地方：</h3>
+    <h3>24. 这是校园的哪个地点？<br>Apakah nama tempat ini?</h3>
     <img src="kantin.jpg" class="game-img">
-    <button onclick="wrong()">行政室 Pejabat</button>
-    <button onclick="nav('q25')">食堂 Kantin</button>
+    <button onclick="check(false)">行政室 Pejabat</button>
+    <button onclick="check(true,'q25')">食堂 Kantin</button>
 </section>
 
 <section id="q25">
-    <h3>25. 看到老师，应该怎么做？</h3>
-    <button onclick="wrong()">跑走 Lari</button>
-    <button onclick="nav('end')">问安 Memberi salam</button>
+    <h3>25. 在校园看到老师，应该：<br>Bila jumpa guru, saya patut:</h3>
+    <button onclick="check(false)">跑掉 Lari</button>
+    <button onclick="check(true,'end')">问安 Memberi Salam</button>
+</section>
+
+<section id="gameover">
+    <h2 style="color: #d32f2f;">❌ 生命用尽 / Game Over</h2>
+    <p>再尝试一次吧！加油！<br>Cuba lagi ya!</p>
+    <button class="primary" onclick="location.reload()">重新挑战 / Main Semula</button>
 </section>
 
 <section id="end">
-    <h2 style="color: #43a047;">🎉 恭喜完成挑战！</h2>
+    <h2 style="color: #43a047;">🎉 恭喜通关！ / Syabas!</h2>
     <div class="wish-card">
-        <p><strong>学校寄语：</strong></p>
-        <p>保持安全，保持积极，我们共同面对挑战。学校时刻想念大家。</p>
-        <p><em>Kekal Selamat, Kekal Positif, Kita hadapi cabaran ini bersama-sama.</em></p>
+        <p><strong>学校寄语 Pesanan Sekolah：</strong></p>
+        <p>保持安全，快乐学习！你做得很好！</p>
+        <p><em>Kekal Selamat, Kekal Positif! Syabas!</em></p>
     </div>
-    <button class="primary" onclick="location.reload()">重新开始挑战</button>
+    <button class="primary" onclick="location.reload()">再玩一次 / Main Semula</button>
 </section>
 
 <script>
+    let lives = 3;
     const bgm = document.getElementById("bgm");
 
-    function nav(targetId) {
-        const sections = document.querySelectorAll("section");
-        sections.forEach(s => {
+    function nav(id) {
+        document.querySelectorAll("section").forEach(s => {
             s.classList.remove("active");
             s.style.display = "none";
         });
-        
-        const next = document.getElementById(targetId);
-        if(next) {
-            next.style.display = "block";
-            setTimeout(() => { next.classList.add("active"); }, 10);
+        const target = document.getElementById(id);
+        if(target) {
+            target.style.display = "block";
+            setTimeout(() => { target.classList.add("active"); }, 10);
             window.scrollTo(0,0);
         }
     }
 
     function startQuiz() {
-        bgm.play().catch(e => console.log("Music interaction required"));
+        lives = 3;
+        updateLives();
+        document.getElementById('stats-bar').style.display = 'flex';
+        bgm.play().catch(e=>{});
         nav('q1');
     }
 
-    function wrong() {
-        alert("🚨 答错了！你需要重新开始认识老师。\nSalah! Sila mula semula.");
-        location.reload();
+    function check(isCorrect, nextId) {
+        if(isCorrect) {
+            nav(nextId);
+        } else {
+            lives--;
+            updateLives();
+            if(lives <= 0) {
+                document.getElementById('stats-bar').style.display = 'none';
+                nav('gameover');
+            } else {
+                alert("🚨 答错了！扣除一条命 ❤️\nSalah! Nyawa ditolak.");
+            }
+        }
+    }
+
+    function updateLives() {
+        let h = "";
+        for(let i=0; i<lives; i++) h += "❤️";
+        document.getElementById('lives-display').innerText = h || "无";
     }
 
     function toggleMusic() {
@@ -302,21 +330,12 @@
         else { bgm.pause(); document.getElementById("musicBtn").innerText="🔇"; }
     }
 
-    const observer = new MutationObserver((mutations) => {
+    const obs = new MutationObserver(() => {
         if (document.getElementById('end').classList.contains('active')) {
-            fireConfetti();
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
         }
     });
-    observer.observe(document.getElementById('end'), { attributes: true });
-
-    function fireConfetti() {
-        var end = Date.now() + 3000;
-        (function frame() {
-            confetti({ particleCount: 7, angle: 60, spread: 55, origin: { x: 0 } });
-            confetti({ particleCount: 7, angle: 120, spread: 55, origin: { x: 1 } });
-            if (Date.now() < end) requestAnimationFrame(frame);
-        }());
-    }
+    obs.observe(document.getElementById('end'), { attributes: true });
 
     window.onload = () => { nav('start'); };
 </script>
